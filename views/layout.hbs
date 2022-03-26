@@ -1,0 +1,26 @@
+ <html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/style.css"/>
+
+  </head>
+  
+  <body>
+    {{> navbar}}
+    <br/>
+    {{{ body }}}
+  </body>
+
+  <details>
+  <summary>Reading the fine print</summary>
+  <p>
+    This is where we hide all of the secret terms and conditions. I have nothing
+    to hide.
+  </p>
+</details>
+
+<p><small>&copy; 2022 by me. All rights reserved, baby.</small></p>
+</html>

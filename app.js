@@ -1,31 +1,31 @@
 const express = require('express');
+const hbs = require('hbs');
+
+hbs.registerPartials(__dirname + '/views/partials');
+
 const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/views/home.html');
-});
-
-// app.get('/', (req, res, next) => res.render('/views/home.html'));
-// app.set('views', __dirname + '/views');
-// app.set('view engine', 'hbs');
-// app.get('/', (req, res, next) => res.render('app'));
+app.locals.pageTitle = 'My Application';
 
 app.get('/home', (request, response) => {
-  response.sendFile(__dirname + '/views/home.html');
+  response.render('home', { message: 'Denis Villeneuve' });
 });
 
 app.get('/about', (request, response) => {
-  response.sendFile(__dirname + '/views/about.html');
+  response.render('about', { message: 'About' });
 });
 
 app.get('/works', (request, response) => {
-  response.sendFile(__dirname + '/views/works.html');
+  response.render('works', { message: 'Movies' });
 });
 
 app.get('/gallery', (request, response) => {
-  response.sendFile(__dirname + '/views/gallery.html');
+  response.render('gallery', { message: 'Photo Gallery' });
 });
 
 app.listen(3000);
